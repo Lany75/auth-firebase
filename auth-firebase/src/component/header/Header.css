@@ -1,4 +1,4 @@
-.header {
+#header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -6,6 +6,11 @@
     margin: 20px 0px 50px 0px;
 }
 
+#message-accueil {
+    font-size: 30px;
+}
+
+/*
 #mail, #password {
     width: 400px;
 }
@@ -20,3 +25,4 @@
     height: 30px;
     margin: 2px;
 }
+*/

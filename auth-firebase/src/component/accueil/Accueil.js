@@ -1,13 +1,22 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../App';
+import React /*, { useContext }*/ from "react";
+//import { AuthContext } from "../../App";
+
+import "./Accueil.css";
 
 const Accueil = () => {
-    //const Auth = useContext(AuthContext);
-    const {userMail} = useContext(AuthContext);
-    userMail && console.log (userMail);
-    //const {isLoggerIn,user} = useContext(AuthContext);
-    //console.log(user)
-return userMail ? <div>Bonjour {userMail}</div>:<div>Bonjour Visiteur</div>
-}
+  //const { userMail } = useContext(AuthContext);
+
+  return <div>Récap du compte + modification</div>;
+
+  /*userMail ? (
+    <div id="message-accueil">
+      Bonjour <b>{userMail}</b>
+    </div>
+  ) : (
+    <div id="message-accueil">
+      Bonjour <b>Visiteur</b>
+    </div>
+  );*/
+};
 
 export default Accueil;
