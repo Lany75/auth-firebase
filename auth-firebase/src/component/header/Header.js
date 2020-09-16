@@ -1,16 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
+import {Button} from '@material-ui/core';
+import './Header.css';
+
+const Header = () =>{
+  return (
+    <div id='header'>
+      <div id="message-accueil">Bonjour <b>Visiteur</b></div>
+      <Button id="btn-deconnexion" variant="contained" disabled disableElevation /*onClick={deconnexion}*/>Déconnexion</Button>
+    </div>
+  )
+}
+
+export default Header;
+
+
+
+
+/*import React, { useContext, useState } from 'react';
 import {Button, TextField} from '@material-ui/core';
-//import * as firebase from 'firebase';
 
 import './Header.css';
 import {AuthContext} from '../../App';
 import firebase from '../../firebaseConfig';
-//console.log(firebase);
 
 const Header = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [error, setError] = useState();
   const Auth = useContext(AuthContext);
 
   const inscription = () =>{
@@ -21,10 +36,12 @@ const Header = () => {
         if(res.user) {
           Auth.setLoggedIn(true);
           Auth.setUserMail(res.user.email);
+          document.getElementById('mail').value="";
+          document.getElementById('password').value="";
         }
       })
       .catch(err => {
-        setError(err.message);
+        console.log(err.message)
       })
   }
 
@@ -33,34 +50,36 @@ const Header = () => {
       .auth()
       .signInWithEmailAndPassword(email,password)
       .then(res=>{
-        //console.log(res.user.email)
         if(res.user) {
           Auth.setLoggedIn(true);
           Auth.setUserMail(res.user.email);
+          document.getElementById('mail').value='';
+          document.getElementById('password').value='';
         }
       })
       .catch(err => {
         console.log(err.message)
-        setError(err.message);
       })
   }
 
   const deconnexion = () =>{
     Auth.setLoggedIn(false); 
     Auth.setUserMail(null);
+    document.getElementById('mail').value="";
+    document.getElementById('password').value="";
   }
 
   return (
     <div className="header">
-      <TextField id="mail" label="Mail" onChange={e=> setEmail(e.target.value)}/>
-      <TextField id="password" label="Password" onChange={e=> setPassword(e.target.value)}/>
-      <div id="boutons">
-        <Button id="btn-inscription" variant="contained" disableElevation onClick={inscription}>Inscription</Button>
-        <Button id="btn-connexion" variant="contained" disableElevation onClick={connexion}>Connexion</Button>
-        <Button id="btn-deconnexion" variant="contained" disableElevation onClick={deconnexion}>Déconnexion</Button>
-      </div>
+        <TextField id="mail" label="Mail" onChange={e=> setEmail(e.target.value)}/>
+        <TextField id="password" label="Password" type='password' onChange={e=> setPassword(e.target.value)}/>
+        <div id="boutons">
+          <Button id="btn-inscription" variant="contained" disableElevation onClick={inscription}>Inscription</Button>
+          <Button id="btn-connexion" variant="contained" disableElevation onClick={connexion}>Connexion</Button>
+          <Button id="btn-deconnexion" variant="contained" disableElevation onClick={deconnexion}>Déconnexion</Button>
+        </div>
     </div>
   )
 }
 
-export default Header;
+export default Header;*/

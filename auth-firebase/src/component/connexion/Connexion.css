@@ -1,0 +1,28 @@
+#connexion {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#mail-password {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-right: 100px;
+}
+
+#mail, #password {
+  width: 400px;
+}
+
+#bouton {
+  margin-left: 100px;
+  margin-right: 200px;
+}
+
+#btn-connexion {
+  font-size: 15px;
+  height: 30px;
+  margin: 2px;
+}
