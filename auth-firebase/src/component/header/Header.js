@@ -1,20 +1,46 @@
-import React from 'react';
-import {Button} from '@material-ui/core';
-import './Header.css';
+import React, { useContext } from "react";
+import { Button } from "@material-ui/core";
+import "./Header.css";
+import { AuthContext } from "../../context/authContext";
 
-const Header = () =>{
+const Header = () => {
+  const Auth = useContext(AuthContext);
+
+  const deconnexion = () => {
+    Auth.setLoggedIn(false);
+    Auth.setUserMail(undefined);
+  };
+
   return (
-    <div id='header'>
-      <div id="message-accueil">Bonjour <b>Visiteur</b></div>
-      <Button id="btn-deconnexion" variant="contained" disabled disableElevation /*onClick={deconnexion}*/>Déconnexion</Button>
+    <div id="header">
+      <div id="message-accueil">
+        Bonjour{" "}
+        <b>{Auth.userMail !== undefined ? Auth.userMail : "Visiteur"}</b>
+      </div>
+      {Auth.userMail ? (
+        <Button
+          id="btn-deconnexion"
+          variant="contained"
+          disableElevation
+          onClick={deconnexion}
+        >
+          Déconnexion
+        </Button>
+      ) : (
+        <Button
+          id="btn-deconnexion"
+          variant="contained"
+          disableElevation
+          disabled
+        >
+          Déconnexion
+        </Button>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Header;
-
-
-
 
 /*import React, { useContext, useState } from 'react';
 import {Button, TextField} from '@material-ui/core';
