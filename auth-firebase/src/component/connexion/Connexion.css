@@ -26,3 +26,11 @@
   height: 30px;
   margin: 2px;
 }
+
+#connexion-google {
+  margin: 75px;
+}
+
+#btn-connexion-google {
+ width: 500px;
+}

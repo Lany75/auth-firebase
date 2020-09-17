@@ -1,27 +1,23 @@
-import React, { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
 
-import './App.css';
-import Main from './component/main/Main';
-import Header from './component/header/Header';
-import Navigation from './component/navigation/Navigation';
-
-export const AuthContext = React.createContext(null);
+import "./App.css";
+import Main from "./component/main/Main";
+import Header from "./component/header/Header";
+import Navigation from "./component/navigation/Navigation";
+import AuthProvider from "./context/authContext";
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [userMail,setUserMail] = useState();
-
   return (
-    <AuthContext.Provider value = {{isLoggedIn, setLoggedIn, userMail, setUserMail}}>
+    <AuthProvider>
       <BrowserRouter>
         <div className="App">
-            <Header />
-            <Navigation />
-            <Main />
+          <Header />
+          <Navigation />
+          <Main />
         </div>
       </BrowserRouter>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 
