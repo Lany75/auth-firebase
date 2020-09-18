@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-#mail-password {
+#nom-mail-password {
   display: flex;
   flex-direction: column;
   margin-left: 200px;
