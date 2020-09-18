@@ -1,3 +1,30 @@
 #message-accueil {
     font-size: 30px;
 }
+
+#userName, #userEmail {
+    font-size: 20px;
+}
+
+#modif-password {
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#ancien-mdp, #nouveau-mdp, #btn-modif-mdp {
+    /*margin: 20px;*/
+    display: flex;
+    align-items: center;
+}
+
+#ancien-password, #nouveau-password-1, #nouveau-password-2 {
+    width: 300px;
+}
+
+#nouveau-mdp {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}

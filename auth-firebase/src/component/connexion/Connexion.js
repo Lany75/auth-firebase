@@ -1,44 +1,52 @@
 import React, { useContext, useState } from "react";
 import { Button, TextField } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+
 import "./Connexion.css";
-import firebase from "../../firebaseConfig";
+import { firebase } from "../../firebaseConfig";
 import { AuthContext } from "../../context/authContext";
 
 const Connexion = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const Auth = useContext(AuthContext);
-  //const { signInWithGoogle } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
+  let history = useHistory();
 
   const connexion = () => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        if (res.user) {
-          Auth.setLoggedIn(true);
-          Auth.setUserMail(res.user.email);
-          setEmail("");
-          setPassword("");
-          document.getElementById("mail").value = "";
-          document.getElementById("password").value = "";
-        }
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    if (
+      email === "" ||
+      email === undefined ||
+      password === "" ||
+      password === undefined
+    )
+      alert("Mail & password manquants, connexion impossible");
+    else {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((res) => {
+          setUser(res.user);
+          history.push("/");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
   };
 
   const connexionGoogle = () => {
-    console.log("connexion google");
-    /* const googleProvider = new firebase.auth.GoogleAuthProvider();
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+
     firebase
       .auth()
       .signInWithPopup(googleProvider)
       .then((res) => {
-        console.log(res);
-        Auth.setLoggedIn(true);
-      });*/
+        setUser(res.user);
+        history.push("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   return (

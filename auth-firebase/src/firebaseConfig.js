@@ -1,5 +1,6 @@
 import * as firebase from "firebase";
 
+// création de l'objet avec les données nécessaires à la configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBo6feLgCJfd8OZFOvJowst5jM1IHKTsaI",
   authDomain: "auth-firebase-75d17.firebaseapp.com",
@@ -11,6 +12,7 @@ const firebaseConfig = {
   measurementId: "G-KB91L3HMJ0"
 };
 
+// initialisation d'une instance de firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export { firebase, firebaseApp as default };
